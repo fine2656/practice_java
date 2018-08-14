@@ -115,9 +115,9 @@ public class BreakContinueTest {
 		int sum=0;
 		for(int i=0;i<10;i++) {
 			sum +=(i+1);
-			//sum = sum+1;
-			//sum = sum+2;
-			//sum = sum+3;
+			//sum = sum+1; i=0 sum=1
+			//sum = sum+2; i=1 sum=1+1+1=3
+			//sum = sum+3; i=2 sum=3+2+1=6
 			
 		String plus = (i<9)?"+":"=";
 		System.out.print(i+1+plus);
@@ -281,7 +281,7 @@ public class BreakContinueTest {
 		System.out.println(sum);
 		//1+ 2+ 3+ 4+ 5+ 6+ 7+ 8+ 9+ 10=55
 		
-		System.out.println("ln=====숙제 1.=====");
+		System.out.println("\n=====숙제 1.=====");
 		/*
 		 301호 302호 303호 305호
 		 201호 202호 203호 205호
@@ -297,7 +297,7 @@ public class BreakContinueTest {
 		}
 		
 		
-		System.out.println("ln=====숙제 2.=====");
+		System.out.println("\n=====숙제 2.=====");
 		
 					/*
 					 501호 502호 503호 505호 
