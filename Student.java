@@ -1,75 +1,32 @@
-package my.day4.quiz;
+package my.day8;
 
 public class Student {
-
+	
+	static int count;
+	
 	String hakbun;
+	String passwd;
 	String name;
-	byte kor;
-	byte eng;
-	byte math;
-
+	int kor,eng,math;
+	double avg = 0;
+	int total =0;
+	String hakjum = "";
 	
-	public Student() { }
+	public Student () {
+		count++;//객체 생성시마다 count 값 증가.
+	}// 기본 생성자
 	
-	public Student(String hakbun, String name, int kor, int eng, int math) { 
-		this.hakbun = hakbun;
-		this.name = name;
-		this.kor = (byte)kor;
-		this.eng = (byte)eng;
-		this.math = (byte)math;
-	
+	public void getStudentInfo() {
+		System.out.println("1. 학번 : "+hakbun);
+		System.out.println("2. 비밀번호: "+passwd);
+		System.out.println("3. 이름 :  "+name);
+		System.out.println("4. 국어 :"+kor);
+		System.out.println("5. 수학 : "+math);
+		System.out.println("6. 영어 : "+eng);
+		System.out.println("7. 총점 : "+total);
+		System.out.println("6. 평균 : "+avg);
+		System.out.println("6. 학점 : "+hakjum);
+		System.out.println("");
 	}
-	
-	public String showInfo() {
-		String info = "=== "+name+"님의 정보 ===\n1. 학번 : "+hakbun+"\n2. 성명 : "+name+"\n3. 국어 : "+kor+"\n4. 영어 : "+eng+"\n5. 수학 : "+math+"";         
-		return info;
-	}
-	
-	public String showTotal() {
-		String result = ">> 총점 : " + (kor+eng+math);
-		return result;
-	}
-	
-	public String showAvg() {
-		String result = (">> 평균 : " + Math.round((((double)(kor+eng+math)/3)*10)/10.0));
-		return result;
-	}
-	public String showHakjum() {
-		
-		double avg = (Math.round((((double)(kor+eng+math)/3)*10)/10.0));
-	
-
-		String hakjum;
-		
-		if(avg >= 90 ) {
-			hakjum= "A";
-			System.out.println("A"); //String hakjum = "A";
-		}
-		else if(avg >= 80 ) {
-			hakjum= "B";
-			System.out.println("B"); //String hakjum = "A";
-		
-		}
-		else if(avg >= 70 ) {
-			hakjum= "C";
-			System.out.println("C"); //String hakjum = "A";
-		
-		}
-		else if(avg >= 60 ) {
-			hakjum= "D";
-			System.out.println("D"); //String hakjum = "A";
-		}
-		else  {
-			hakjum= "학점 : F";
-			System.out.println("F"); //String hakjum = "A";
-		
-		}
-		return hakjum;//에러d
-		
-		
-	}
-	
-	
-	
 	
 }
