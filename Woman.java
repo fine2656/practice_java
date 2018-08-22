@@ -1,7 +1,10 @@
 package my.day12;
 
 public class Woman extends Human{//Human으로 부터 상속을 받는다.
-
+	//다중 상속 불가.-> public class Woman extends Human,Saram : X
+	//자바에서는 상속 받을 클래스는 1개만 가능하다. 즉, 2개 이상의 클래스로부터 상속 (= 다중상속) 은 불가하다.
+	//참고로 C++언어는 다중상속이 가능하다.
+	//자바에서는 인터페이스(interface)로 다중 구현으로 처리한다.
 	
 		String childBirthDay;//출산 예정일
 	
