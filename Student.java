@@ -1,32 +1,46 @@
-package my.day8;
+package my.day13;
+
+import my.util.MyUtil;
 
 public class Student {
+
+	private String hakbun="" ;
+	private String name="";
+	private String mobile="";
 	
-	static int count;
+
+	public String getHakbun() {
+		
+		return hakbun;
+	}
+	public void setHakbun(String hakbun) {
 	
-	String hakbun;
-	String passwd;
-	String name;
-	int kor,eng,math;
-	double avg = 0;
-	int total =0;
-	String hakjum = "";
+		if(hakbun.trim().isEmpty()) System.out.println("학번에는 0이상의 숫자만 가능합니다."); 
+		else this.hakbun = hakbun;
+
+		
+	}
+	public String getName() {
+		
+		return name;
+	}
+	public void setName(String name) {
+		if(name.trim().isEmpty()) {
+			System.out.println("이름에는 공백을 넣을 수 없습니다.");
+		}
+		else this.name = name;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		int length = mobile.length();
 	
-	public Student () {
-		count++;//객체 생성시마다 count 값 증가.
-	}// 기본 생성자
-	
-	public void getStudentInfo() {
-		System.out.println("1. 학번 : "+hakbun);
-		System.out.println("2. 비밀번호: "+passwd);
-		System.out.println("3. 이름 :  "+name);
-		System.out.println("4. 국어 :"+kor);
-		System.out.println("5. 수학 : "+math);
-		System.out.println("6. 영어 : "+eng);
-		System.out.println("7. 총점 : "+total);
-		System.out.println("6. 평균 : "+avg);
-		System.out.println("6. 학점 : "+hakjum);
-		System.out.println("");
+		if(MyUtil.checkNumber(mobile) && (length ==10) || (length==11) && mobile.startsWith("010"))
+			this.mobile = mobile;
+		else System.out.println(">>>휴대폰번호로 사용 불가능합니다.");
+
 	}
 	
+
 }
