@@ -1,138 +1,74 @@
-package my.day16;
+package my.day14;
 
-import java.util.Scanner;
+public class Student extends Common {
 
-public class Student implements Inter1,Inter2,Inter3{
-	
 	private String hakbun;
-	private String name;
-	private int jumsu;
-	private String hakjum;
-	private String comment;
-	private int point;
-	
-	
-	public Student() {}
-	
+	private String guardEmail;	//보호자 이메일
+	private String awardsCareer;//수상경력
 	/**
 	 * @param hakbun
-	 * @param name
-	 * @param jumsu
-	 * @param hakjum
-	 * @param comment
+	 * @param guardEmail
+	 * @param awardsCareer
 	 */
-	public Student(String hakbun, String name, int point) {
+	public Student () {
+		//super(); 생략되어져 있음.
+	}
+	public Student(	String id, String passwd, String email, String name,String hakbun, String guardEmail, String awardsCareer) {
+		super(	id,passwd,email,name);
 		this.hakbun = hakbun;
-		this.name = name;
-		setPoint(point);
+		this.guardEmail = guardEmail;
+		this.awardsCareer = awardsCareer;
 	}
-
-	
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		if(point <0) {
-			this.point = 0;
-			
-		}
-		else if(point >100 ) {
-			this.point = 100;
-		}
-		else this.point = point;
-		
-		switch (this.point/10) {
-			case 10:
-			case 9:	hakjum = "A"; break;
-			case 8:	hakjum = "b"; break;
-			case 7: hakjum = "C"; break;
-			case 6: hakjum = "D"; break;
-			default:hakjum = "F"; break;
-		}
-	}
-
 	public String getHakbun() {
 		return hakbun;
 	}
-
 	public void setHakbun(String hakbun) {
 		this.hakbun = hakbun;
 	}
-
-	public String getName() {
-		return name;
+	public String getGuardEmail() {
+		return guardEmail;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setGuardEmail(String guardEmail) {
+		this.guardEmail = guardEmail;
 	}
-
-	public int getJumsu() {
-		return jumsu;
+	public String getAwardsCareer() {
+		return awardsCareer;
 	}
-
-	public void setJumsu(int jumsu) {
-		this.jumsu = jumsu;
+	public void setAwardsCareer(String awardsCareer) {
+		this.awardsCareer = awardsCareer;
 	}
-
-	public String getHakjum() {
-		return hakjum;
-	}
-
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
-	@Override
-	public Student search(String hakbun) {
-		Student student = null;
-		
-		if(hakbun !=null && hakbun.equals(this.hakbun)) {
-			student = this;//this는 자기의 객체
-			//즉 student 객체
-			
-		}
-		return student;
-	}
-
-	@Override
-	public void printInfo() {
+	//=== 매소드의 오버라이딩. 재정의
 	
-		System.out.println("1. 학번 : "+hakbun);
-		System.out.println("2. 성명 : "+name);
-		System.out.println("3. 점수 : "+point);
-		System.out.println("4. 학점: "+hakjum);
-		System.out.println("5. 코멘트 : ");
-		System.out.println(comment);
-	}
+	@Override//애노테이션(어노테이션) : 부모클래스로부터 물려받은 것을 재정의한다 
+	//접근 제한자를 줄 떄 오버라이딩 하는 쪽에서는 점점 커져야한다.
+	// -> 접근 제한자가 부모같던지 부모보다 커야한다.
+	
+	public void showInfo() {
+		System.out.println("학생 "+getName()+"님 정보 ");
+		System.out.println("1. 학  번 : "+hakbun);
+		System.out.println("2. 성  명 : "+getName());
+		System.out.println("3. 이메일 : "+getEmail());
+		System.out.println("4. 수상경력 : "+awardsCareer);
+		System.out.println("");
+		
 
-	@Override
-	public void comment(String hakbun, Scanner sc) {
-		Student student = search(hakbun);
-		if(student != null) {//학번이 존재 한다면,
-			System.out.println(" 성명 : "+student.name);
-			System.out.println(" 점수 : "+student.point);
-			System.out.println(" 학점 : "+student.hakjum);
-			System.out.println(" 코멘트를  입력하세요 .(종료를 하려면 Enter key 입력 수 Exit를 입력하세요. ");
-			
-			StringBuilder sd =new StringBuilder();
-			String str="";
-			
-			do {
-				str = sc.nextLine();
-				if("exit".equalsIgnoreCase(str.trim())) {
-				break;					
-				}
-				else sd.append(str+"\n");// str의 입력된 정보를 sd 에 쌓아준다.	
-			} while (true);
-			student.comment = sd.toString();
-		}
-						
-		else System.out.println(" 존재 하지 않는 학생입니다. 코멘트를 입력하실 수 없습니다.");
 	}
+	@Override
+	public Common login(String id, String passwd) {
+		
+		if(getId()!=null && getPasswd()!= null) {
+			if(getId().equals(id) && getPasswd().equals(passwd)) {
+				System.out.println("학생 "+getName()+"님 환영합니다. ");
+				return this;	
+			}
+			else System.out.println("로그인 실패 !");
+	 		return null;
+			
+		}
+		else {
+			System.out.println(">>회원 정보가 없습니다. 회원 가입부어 하세요!");
+			return null;
+		}
+	
+	}//end of login
 }

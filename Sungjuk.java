@@ -1,94 +1,143 @@
-package my.day13;
+package my.day14;
 
 public class Sungjuk {
+	
+	private String hakbun;
+	private String yearQuarter;
+	private int kor;
+	private int eng;
+	private int math;
+	private int science;
+	private int society;
+	
+	public Sungjuk() {}
 
-	private Student student;
-	
-	private int kor =-1;
-	private int eng =-1;
-	private int math=-1;
-	
-	private int total ;
-	private double avg;
-	private String hakjum;
-	
+	/**
+	 * @param hakbun
+	 * @param yearQuarter
+	 * @param kor
+	 * @param eng
+	 * @param math
+	 * @param science
+	 * @param society
+	 */
+	public Sungjuk(String hakbun, String yearQuarter, int kor, int eng, int math, int science, int society) {
+		super();
+		this.hakbun = hakbun;
+		this.yearQuarter = yearQuarter;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.science = science;
+		this.society = society;
+	}
 
-	public Student getStudent() {
-		return student;
+	public String getHakbun() {
+		return hakbun;
 	}
-	public void setStuent(Student st) {
-		if(	st !=null && 
-			!st.getHakbun().isEmpty() &&
-			!st.getName().isEmpty() &&
-			!st.getMobile().isEmpty()) {
-			this.student = st;
-		}
-		else {
-			System.out.println("학생으로 사용불가한 사람입니다.");
-		}
+
+	public void setHakbun(String hakbun) {
+		this.hakbun = hakbun;
 	}
+
+	public String getYearQuarter() {
+		return yearQuarter;
+	}
+
+	public void setYearQuarter(String yearQuarter) {
+		this.yearQuarter = yearQuarter;
+	}
+
 	public int getKor() {
 		return kor;
 	}
+
 	public void setKor(int kor) {
-		if(0<=kor && kor<=100) this.kor = kor;
-		else System.out.println(">>성적은 음수 입력이 불가능 합니다.");
+		this.kor = kor;
 	}
+
 	public int getEng() {
 		return eng;
 	}
+
 	public void setEng(int eng) {
-		if(0<=eng && eng<=100) this.eng = eng;
-		else System.out.println("성적은 음수 입력이 불가능 합니다.");
+		this.eng = eng;
 	}
+
 	public int getMath() {
 		return math;
 	}
+
 	public void setMath(int math) {
-		if(0<=math && math<=100) this.math = math;
-		else System.out.println("성적은 음수 입력이 불가능 합니다.");
-		
-		
+		this.math = math;
+	}
+
+	public int getScience() {
+		return science;
+	}
+
+	public void setScience(int science) {
+		this.science = science;
+	}
+
+	public int getSociety() {
+		return society;
+	}
+
+	public void setSociety(int society) {
+		this.society = society;
 	}
 	
-	public int getTotal() {
-		return kor+eng+math;
+	// === 매소드의 오버로딩(OverLoading) ===
+	//=> 매소드 명은 같아도 되나, 파라미터의 타입과 갯수는 달라야 한다.
+	
+	public void setJumsu(int kor, int eng, int math) {
+	
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		
+		
 	}
-	public double getAvg() {
-		return ((Math.round((double)getTotal()*10)/3)/10.0);
+	public void setJunsu(int kor, int eng, int maht, int society,int sience ) {//매소드 명이 같아도 파라미터의 갯수가 다르면 다른 매소드로 인식함.
+		
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.society=society;
+		this.science=science;
+		
+		
+		
 	}
-	public String getHakjum() {
-		switch((int)getAvg()/10) {
-		 case 10:
-		 case 9 : hakjum = "A"; break;
-		 case 8 : hakjum ="B"; break;
-		 case 7 : hakjum = "C"; break;
-		 case 6 : hakjum = "D"; break;
-		 default : hakjum = "F"; break;
-		}
-		return hakjum;
+	public void setJunsu(int kor, int eng, int maht, int society, String comment) {//매소드 명과 파라미터의 갯수가 같아도 위치와 타입이 다르면  다른 매소드로 인식함.
+		
 	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
