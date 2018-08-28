@@ -1,4 +1,4 @@
-package my.day15.sub;
+package my.day15.sub2;
 /*
  === 인터 페이스(Interface) 란?
  모든 메소드는 추상메소드 (미완성 메소드)로 되어있고, 모든 멤버 변수(속성)들은 상수변수 (final 변수)로 되어 있는 것을 말한다.

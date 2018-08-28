@@ -1,21 +1,27 @@
-package my.day15.sub;
+package my.day15.sub2;
 
-public class Dog implements InterAnimal {
+public class Dog  extends Animal{
 
-	private String name;
-	private int age;
+
 	private int weight;
 	
-		/**
-	* @param name
-	* @param age
-	*/
 	
 	public Dog() {}
-	public Dog(String name, int age,int weight) {
+	
+	
+	public Dog(String name,int weight) {
+		this(name,1,weight);//생성자 내에서 또 다른 생성자를 호출한다.
+		//this는 자기 자신 . 자기자신의 생성자 Dog 를 호출.
 
-	this.name = name;
-	this.age = age;
+		//생성자의 오버로딩
+		// 값을 주고 값을 안준 나머지는 기본값이다.
+	
+		}
+		
+	
+	
+	public Dog(String name, int age,int weight) {
+	super(name,age);
 	this.weight = weight;
 	}
 	
@@ -25,14 +31,6 @@ public class Dog implements InterAnimal {
 		System.out.println("멍멍");
 	}
 
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 
 	public int getWeight() {
@@ -44,23 +42,13 @@ public class Dog implements InterAnimal {
 		this.weight = weight;
 	}
 
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-
 	@Override
 	public String run() {
-		String result="강아지 "+name+"가 네발로 달린다.";
+		String result="강아지 "+getName()+"가 네발로 달린다.";
 		return result;
 	}
 
-	@Override
-	public int getAge() {
-		
-		return age;
-	}
+
 
 	@Override
 	public String grade(String level) {

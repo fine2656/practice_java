@@ -1,9 +1,11 @@
-package my.day15.sub;
+package my.day15.sub2;
 
 public class TestMain {
 
 	public static void main(String[] args) {
-		InterAnimal[] aniArr = new InterAnimal[5];
+		Animal[] aniArr = new Animal[5];//미완성 클래스로 받기만 할 수 있을뿐 객체를 만들 수 없다.
+		//-> Animal a = new Animal(); X 만들어진 객체를 만드는 역할 일 뿐
+		
 
 		Dog dog = new Dog("뽀삐", 9, 10);	
 		
@@ -21,24 +23,26 @@ public class TestMain {
 		
 		System.out.println("--------------------------");
 		
-		for(int i=0; i<3; i++) {
+		for(int i=0; i<Animal.count; i++) {
 			if(aniArr[i] instanceof Dog) {
-				System.out.println("1.성명 : "+ ((Dog)aniArr[i]).getName());
-				System.out.println("2.나이 : "+((Dog)aniArr[i]).getAge());
+				
+				System.out.println("1.성명 : "+ (aniArr[i]).getName());
+				System.out.println("2.나이 : "+(aniArr[i]).getAge());
 				System.out.println("");
 				
 			}
 			else if(aniArr[i] instanceof Cat) {
-				System.out.println("1.성명 : "+ ((Cat)aniArr[i]).getName());
-				System.out.println("2.나이 : "+ ((Cat)aniArr[i]).getAge());
+				System.out.println("1.성명 : "+ (aniArr[i]).getName());
+				System.out.println("2.나이 : "+ (aniArr[i]).getAge());
 				System.out.println("");
 			}
 			else if(aniArr[i] instanceof Duck) {
-				System.out.println("1.성명 : "+ ((Duck)aniArr[i]).getName());
-				System.out.println("2.나이 : "+ ((Duck)aniArr[i]).getAge());
+				System.out.println("1.성명 : "+ (aniArr[i]).getName());
+				System.out.println("2.나이 : "+ (aniArr[i]).getAge());
 				System.out.println("");
 			}
 				System.out.println(aniArr[i].run());
+				System.out.println("");
 				aniArr[i].crySound();
 			}
 			
