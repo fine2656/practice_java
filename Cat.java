@@ -1,34 +1,69 @@
-package my.day15;
+package my.day15.sub;
 
-public class Cat extends Animal{
+public class Cat  implements InterAnimal{
+
+	private String name;
 	private String color;
+	private int age;
 	
+	
+	
+	/**
+	 * @param color
+	 * @param age
+	 * @param name
+	 */
+	public Cat() {}
+	
+	public Cat(String name,int age,String color ) {
+		super();
+		this.color = color;
+		this.age = age;
+		this.name = name;
+	}
+
 	public String getColor() {
 		return color;
 	}
+
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
-	@Override
-	public void crySound() {
-		System.out.println(" 야옹야옹 ~");
-		
-	}
-	/**
-	 * @param color
-	 */
-	public Cat() {}
-	public Cat(String name, int age,String color) {
-		super(name, age);
-		this.color = color;
-	}
-	public void printCat() {
-		String str = "고양이의 이름은 "+getName()+", "+
-					  "나이는 "+getAge()+"살, "+
-					  "색상은 "+ color+" 입니다.";
-		System.out.println(str+"\n");
+
+	public String getName() {
+		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public void crySound() {
+		System.out.println("야옹야옹");
+		
+	}
+
+	@Override
+	public String run() {
+		String result="고양이 "+name+"가 네발로 달린다.";
+		return result;
+	}
+
+	@Override
+	public int getAge() {
+		// TODO Auto-generated method stub
+		return age;
+	}
+
+	@Override
+	public String grade(String level) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

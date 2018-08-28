@@ -1,45 +1,71 @@
-package my.day15;
+package my.day15.sub;
 
-public class Dog extends Animal{
+public class Dog implements InterAnimal {
+
+	private String name;
+	private int age;
 	private int weight;
+	
+		/**
+	* @param name
+	* @param age
+	*/
+	
+	public Dog() {}
+	public Dog(String name, int age,int weight) {
+
+	this.name = name;
+	this.age = age;
+	this.weight = weight;
+	}
+	
+	
 	@Override
 	public void crySound() {
-		System.out.println(" 멍멍 ~");
-		
+		System.out.println("멍멍");
 	}
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	public int getWeight() {
 		return weight;
 	}
-	public void setWeight(int weight) {
-		if(weight <0) {
-		this.weight = 0;
 
-		}
-		else this.weight = weight;
-			
-	}
-	/**
-	 * @param weight
-	 */
-	public Dog() {}
-	public Dog(String name, int age, int weight) {
-		super(name, age);
+
+	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-	public void printDog() {
-		String str = "강아지의 이름은 "+getName()+", "+
-					  "나이는 "+getAge()+"살, "+
-					  "무게는 "+weight+"kg 입니다.";
-		System.out.println(str+"\n");
-	}
-	
-	@Override
-	public String toString() {
-		String result = "=== "+getName()+"님의 정보 ==="+"\n"+
-						"1. 성명 : "+getName()+"\n"+
-						"2. 나이 :  "+getAge()+"\n"+
-						"3. 체중 : "+getWeight()+"\n";
 
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+	@Override
+	public String run() {
+		String result="강아지 "+name+"가 네발로 달린다.";
 		return result;
 	}
+
+	@Override
+	public int getAge() {
+		
+		return age;
+	}
+
+	@Override
+	public String grade(String level) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
