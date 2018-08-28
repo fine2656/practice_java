@@ -1,51 +1,53 @@
-package my.day15.sub2;
+package my.day16;
+
+import java.util.Scanner;
 
 public class TestMain {
 
 	public static void main(String[] args) {
-		Animal[] aniArr = new Animal[5];//미완성 클래스로 받기만 할 수 있을뿐 객체를 만들 수 없다.
-		//-> Animal a = new Animal(); X 만들어진 객체를 만드는 역할 일 뿐
+		Scanner sc = new Scanner(System.in);
+		Student[] studentArr = new Student[3];
 		
-
-		Dog dog = new Dog("뽀삐", 9, 10);	
+		studentArr[0] = new Student("kh001", "홍길동", 90);
+		studentArr[1] = new Student("kh002", "한석규", 78);
+		studentArr[2] = new Student("kh003", "두석규", 80);
 		
-		Cat cat = new Cat("톰", 3, "검정");
-		Duck duck = new Duck("도널드", 5, 50000);
 		
-		aniArr[0] = dog;
-		aniArr[1] = cat;
-		aniArr[2] = duck;
-		
-		for(int i=0; i<3; i++) {
-			System.out.println(aniArr[i].run());
-			aniArr[i].crySound();
-		}
-		
-		System.out.println("--------------------------");
-		
-		for(int i=0; i<Animal.count; i++) {
-			if(aniArr[i] instanceof Dog) {
-				
-				System.out.println("1.성명 : "+ (aniArr[i]).getName());
-				System.out.println("2.나이 : "+(aniArr[i]).getAge());
-				System.out.println("");
-				
-			}
-			else if(aniArr[i] instanceof Cat) {
-				System.out.println("1.성명 : "+ (aniArr[i]).getName());
-				System.out.println("2.나이 : "+ (aniArr[i]).getAge());
-				System.out.println("");
-			}
-			else if(aniArr[i] instanceof Duck) {
-				System.out.println("1.성명 : "+ (aniArr[i]).getName());
-				System.out.println("2.나이 : "+ (aniArr[i]).getAge());
-				System.out.println("");
-			}
-				System.out.println(aniArr[i].run());
-				System.out.println("");
-				aniArr[i].crySound();
-			}
+		for(Student st:studentArr) {
+			st.comment(st.getHakbun(), sc);
 			
 		}
+		for(Student st:studentArr) {
+			st.printInfo();
+		}
+		
+		System.out.print(" 학번 검색 : ");
+		String hakbun = sc.nextLine();
+		for(int i=0;i<3;i++) {
+			
+			if(studentArr[i].getHakbun().equals(hakbun)) {
+			
+				int idd = i;
+				studentArr[idd].printInfo();
+				break;
+			}
+		}
+		
+		System.out.print("> 검색하실 학번을 입력하세요/");
+		String searchHakbun = sc.nextLine();
+		Student searchStudent =null;
+		
+		for(Student st : studentArr) {
+			searchStudent= st.search(searchHakbun);
+			if(searchStudent !=null) {
+				searchStudent.printInfo();
+				break;
+				
+			}if(searchStudent == null) System.out.println("검색 하신 학번 "+searchHakbun+"은 존재하지 않습니다.");
+			
+		}
+		
+		
 	}
 
+}
