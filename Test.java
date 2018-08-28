@@ -1,31 +1,35 @@
-package my.day11;
+package my.day17;
 
-import my.util.MyUtil;
+import java.io.IOException;
 
 public class Test {
 
+
 	public static void main(String[] args) {
 	
-			String str1 = "";
-			String str2 = "		";
-			String str3 = "abcd";
-			String str4 = " ab cd ";
-			
-			System.out.println("str1.isEmpty()=>"+str1.isEmpty());
-			System.out.println("str2.isEmpty()=>"+str2.isEmpty());
-			System.out.println("str3.isEmpty()=>"+str3.isEmpty());
-			System.out.println("str4.isEmpty()=>"+str4.isEmpty());
-			//.isEmpty() 은 텅비었으면 참.
-			System.out.println("str1.isEmpty()=>"+str1.trim().isEmpty());
-			System.out.println("str2.trim().isEmpty()=>"+str2.trim().isEmpty());//.trim() -> 앞뒤의  공백 제거.
-			System.out.println("str3.trim().isEmpty()=>"+str3.trim().isEmpty());
-			System.out.println("str4.trim().isEmpty()=>"+str4.trim().isEmpty());
-			System.out.println("ttt"+str4+"ttt");
-			System.out.println("ttt"+str4.trim()+"ttt");
-			
-			System.out.println("===============================");
-			System.out.println(MyUtil.checkNumber("120345"));
-			System.out.println(MyUtil.checkNumber("120ab45"));
+		String str = "25";
+		String str2 = "똘똘이";
+		//run type  exeption : 처음부터 오류인지 아닌지 모르나 실행 시 오류인지 알수잇음.
+		int a1 = Integer.parseInt(str);
+		int a2 = Integer.parseInt(str2);
+		System.out.println(a1);
+		System.out.println(a2);
+		
+		int[] arr = {10,20,30};
+		
+		for(int i=0;i<arr.length+1;i++) {
+			System.out.println(arr[i]);
+		}
+		
+		//checked exeption :실행 해보지 않아도 처음부터 오류인지 알수 있다.
+		//IOException -> 코딩 할때 부터 나오는 오류
+		
+		try {
+			int no = System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
-
-}
+	}

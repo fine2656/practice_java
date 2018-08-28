@@ -1,72 +1,51 @@
-package my.day3;
+package my.day17;
+
+import my.util.MyUtil;
 
 public class Member {
-
-	String userid;
-	String pwd;
-	String name;
-	int age;
+	private String id;
+	private String passwd;
+	private String name;
+	/**
+	 * @param id
+	 * @param passwd
+	 * @param name
+	 */
 	
-	static int count;  
-	// count는 Member 클래스로 생성되어진 객체의 갯수를 누적시키는 용도로 써본다.
-	
-	public Member() {
-		count = count + 1;
-	}
-	
-	public Member(String userid, String pwd, String name, int age) {
-		this.userid = userid;
-		this.pwd = pwd;
+	public Member() {}
+	public Member(String id, String passwd, String name) throws UserDefineExceptionID, UserDefineExceptionPassword {
+		setId(id);
+		setPasswd(passwd);
 		this.name = name;
-		this.age = age;
-		
-		count = count + 1;
+	}
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id)throws UserDefineExceptionID {// 이 매소드는 UserDefineExceptionID 오류가 발생 할 수 있다.
+		if(id ==null ||id.length()<5) {
+		throw new UserDefineExceptionID	();// 생성자를 만든다.-> super("ID명은 최소길이가 5글자 이상이어야 합니다. "); 이 나온다.
+		}
+		else if("admin".equals(id) || "superman".equals(id)) {
+			throw new UserDefineExceptionID	("아이디명은 admin/superman으로 사용하실 수 없습니다.");// super(errorMsg);
+		}
+		else this.id = id;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) throws UserDefineExceptionPassword{
+		if(MyUtil.checkPassword(passwd)) this.passwd = passwd;
+		else throw new UserDefineExceptionPassword();
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	// == 리턴타입(반환타입)이 없는 인스턴스 메소드 생성하기 == //
-	public void showInfo() {
-		System.out.println("\n=== "+name+"님의 정보 ===");
-		System.out.println("1. 아이디 : " + userid);
-		System.out.println("2. 암  호 : " + pwd);
-		System.out.println("3. 성  명 : " + name);
-		System.out.println("4. 나  이 : " + age);
-		System.out.println("5. 생성된 객체수 : " + count);
-	}
 	
 	
-	// == 리턴타입(반환타입)이 있는 인스턴스 메소드 생성하기 == //
-	public String returnShowInfo() {
-		
-		String info = "\n>>> "+name+"님의 정보 <<<\n1.아이디: "+userid+"\n2.암호: "+pwd+"\n3.성명: "+name+"\n4.나이: "+age+"";                           
-		
-		return info;
-	}
-	
-	// == 리턴타입(반환타입)은 없고 매개변수(인자, 파라미터)가 있는 인스턴스 메소드 생성 하기 == 
-	public void chageVal(String pwd, int age) {
-		this.pwd = pwd;
-		this.age = age;
-	}
-	
-	
-	// == 리턴타입(반환타입)도 있고 매개변수(인자, 파라미터)도 있는 인스턴스 메소드 생성 하기 ==
-	public String returnChangeVal(String pwd, int age) {
-		
-		this.pwd = pwd;
-		this.age = age;
-		
-	//	String info = "\n*** "+name+"님의 정보 ***\n1.아이디: "+userid+"\n2.암호: "+pwd+"\n3.성명: "+name+"\n4.나이: "+age+"";
-	//	String info = returnShowInfo();
-		
-	//	return info;
-		
-		return returnShowInfo();
-	}
-	
-	
-	// == static 메소드 생성하기 == //
-	public static void showCount() {
-		System.out.println("-- 지금까지 생성된 객체수 : " + count + " --"); 
-	}
 	
 }
