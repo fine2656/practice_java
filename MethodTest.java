@@ -8,7 +8,7 @@ public class MethodTest {
 		
 		Member.showCount();
 		
-		Member me = new Member();
+	Member me = new Member();
         me.userid = "seoyh";
         me.pwd = "qwer1234$";
         me.name = "서영학";
